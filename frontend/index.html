@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#121212" />
+  <meta name="description" content="Real-time Chess Application - Play PvP or vs AI" />
+
+  <!-- Preload critical fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Stockfish.js WASM (optional CDN) - Load asynchronously -->
+  <script src="https://cdn.jsdelivr.net/npm/stockfish@14/src/stockfish.js" async crossorigin="anonymous" onerror="console.warn('Stockfish failed to load from CDN')"></script>
+
+  <title>♟️ Chess Arena</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script>
+    // Polyfill for sockjs-client compatibility with Vite
+    if (typeof global === 'undefined') {
+      window.global = window;
+    }
+  </script>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>

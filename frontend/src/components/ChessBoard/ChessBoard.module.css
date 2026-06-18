@@ -1,0 +1,116 @@
+/* frontend/src/components/ChessBoard/ChessBoard.module.css */
+/* Dark-themed, professional chess board styling */
+
+.chessboardContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.chessboardContainer.disabled {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.boardWrapper {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 1;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.6),
+        0 0 1px 1px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.boardWrapper :global(.react-chessboard-square) {
+    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.boardWrapper :global(.react-chessboard-light-square) {
+    background-color: #f0d9b5;
+}
+
+.boardWrapper :global(.react-chessboard-dark-square) {
+    background-color: #b58863;
+}
+
+/* Hover effect on pieces */
+.boardWrapper :global(.react-chessboard-dragging) {
+    opacity: 0.8;
+    filter: drop-shadow(0 0 8px rgba(66, 133, 244, 0.6));
+}
+
+.statusIndicator {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: #e0e0e0;
+    font-size: 0.875rem;
+    font-weight: 500;
+    min-height: 2.5rem;
+    justify-content: center;
+}
+
+.statusIndicator.disabled {
+    color: #ff6b6b;
+    background: rgba(255, 107, 107, 0.1);
+    border-color: rgba(255, 107, 107, 0.3);
+}
+
+/* Spinner for thinking state */
+.spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(66, 133, 244, 0.3);
+    border-top-color: #4285f4;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .chessboardContainer {
+        padding: 0.75rem;
+        gap: 1rem;
+    }
+
+    .boardWrapper {
+        max-width: 90vw;
+    }
+
+    .statusIndicator {
+        font-size: 0.75rem;
+        padding: 0.625rem 1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .boardWrapper :global(.react-chessboard-square) {
+        transition: none;
+    }
+
+    .spinner {
+        animation: none;
+        border-top-color: currentColor;
+    }
+}

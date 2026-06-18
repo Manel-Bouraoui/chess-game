@@ -1,0 +1,123 @@
+/* frontend/src/components/MoveHistory/MoveHistory.module.css */
+.moveHistory {
+    background: var(--bg-darker);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 2rem 1fr 1fr;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: rgba(66, 133, 244, 0.1);
+    border-bottom: 1px solid var(--border-color);
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #4285f4;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.moveNum {
+    text-align: center;
+}
+
+.whiteMove,
+.blackMove {
+    text-align: left;
+}
+
+.moves {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-style: italic;
+}
+
+.movePair {
+    display: grid;
+    grid-template-columns: 2rem 1fr 1fr;
+    gap: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.8rem;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+.movePair:hover {
+    background: rgba(66, 133, 244, 0.1);
+}
+
+.movePair:last-child {
+    border-bottom: none;
+}
+
+.moveNum {
+    font-weight: 700;
+    color: #4285f4;
+    text-align: center;
+    font-family: 'Courier New', monospace;
+    min-width: 2rem;
+}
+
+.moveText {
+    font-family: 'Courier New', monospace;
+    color: var(--text-primary);
+    font-weight: 500;
+    padding: 0.25rem 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+    word-break: break-all;
+}
+
+.movePair:nth-child(odd) {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* Scrollbar styling */
+.moves::-webkit-scrollbar {
+    width: 6px;
+}
+
+.moves::-webkit-scrollbar-track {
+    background: var(--bg-darker);
+}
+
+.moves::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 3px;
+}
+
+.moves::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+    .header {
+        font-size: 0.7rem;
+    }
+
+    .moveText {
+        font-size: 0.75rem;
+    }
+}

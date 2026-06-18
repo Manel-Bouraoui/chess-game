@@ -1,0 +1,89 @@
+ /* frontend/src/components/LoadingSpinner/LoadingSpinner.module.css */
+ .spinner {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     gap: 1.5rem;
+ }
+
+ .spinner {
+     position: relative;
+     width: 60px;
+     height: 60px;
+ }
+
+ .small {
+     width: 40px;
+     height: 40px;
+ }
+
+ .medium {
+     width: 60px;
+     height: 60px;
+ }
+
+ .large {
+     width: 80px;
+     height: 80px;
+ }
+
+ .dot {
+     position: absolute;
+     width: 25%;
+     height: 25%;
+     background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+     border-radius: 50%;
+     animation: spin 1.4s infinite ease-in-out both;
+ }
+
+ .dot:nth-child(1) {
+     top: 8%;
+     left: 8%;
+     animation-delay: -0.32s;
+ }
+
+ .dot:nth-child(2) {
+     top: 8%;
+     right: 8%;
+     animation-delay: -0.16s;
+ }
+
+ .dot:nth-child(3) {
+     right: 8%;
+     bottom: 8%;
+ }
+
+ .dot:nth-child(4) {
+     bottom: 8%;
+     left: 8%;
+     animation-delay: 0.16s;
+ }
+
+ @keyframes spin {
+
+     0%,
+     100% {
+         transform: scale(1);
+         opacity: 1;
+     }
+
+     50% {
+         transform: scale(0.5);
+         opacity: 0.5;
+     }
+ }
+
+ .message {
+     color: var(--text-secondary);
+     font-size: 0.95rem;
+     margin: 0;
+     text-align: center;
+     letter-spacing: 1px;
+ }
+
+ @media (prefers-reduced-motion: reduce) {
+     .dot {
+         animation: none;
+     }
+ }
